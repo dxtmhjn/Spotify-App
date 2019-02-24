@@ -1,0 +1,28 @@
+<div class="album-songs-container">
+    <button class="close-album-area-tablet"><i  class="fas fa-times"></i></button>
+    <div class="album-details">
+      <div class="album-img">
+        <img [src]="getSongs.images[1].url"/>
+      </div>
+      <div class="album-data clearfix">
+        <h2>{{getSongs.name}}</h2>
+        <p class="artist-name">{{getSongs.artists[0].name}}</p>
+      </div>
+    </div>
+    <div class="album-songs">
+        <ul class="album-list-name">
+            <li>#</li>
+            <li>Song</li>
+            <li>Artist</li>
+            <li class="text-center">Duration</li>
+          </ul>
+          <ul *ngFor="let x of getSongs.tracks.items">
+              <li><a href="javascript:void()" (click)="playSong(x.uri)"><span class="play_no">{{x.track_number}}</span><span class="play_hover"></span></a></li>
+              <li><a href="javascript:void()" (click)="playSong(x.uri)" class="song-name">{{x.name}}</a></li>
+              <li><a href="javascript:void()" (click)="playSong(x.uri)" class="artist-name">{{x.artists[0].name}}</a></li>
+              <li class="text-center"><a href="javascript:void()" (click)="playSong(x.uri)">{{millisToMinutesAndSeconds(x.duration_ms)}}</a></li>
+               
+            </ul>
+    </div>
+    
+  </div>

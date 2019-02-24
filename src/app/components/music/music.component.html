@@ -1,0 +1,42 @@
+<div class="app">
+    <div class="layout">
+  
+  
+        <!-- Page Container START -->
+        <div class="page-container">
+  
+          <app-header (sendSearchValue)="setSearchComponentActive($event)"></app-header>
+  
+           
+            <!-- Content Wrapper START -->
+            <div class="main-content">
+                <div class="container-fluid">
+                    <!-- Your content goes here -->
+                    
+                    <div class="content-row">
+                      <div class="col-left">
+                      <app-latest-release *ngIf="showLatest" (showTracksArea)="toggleTrackArea($event)"></app-latest-release>
+                      <app-search-container *ngIf="showSearch" (hideSearch)="toggleSearchArea($event)" (showTracksArea)="toggleTrackArea($event)"></app-search-container>
+                    </div>
+                      <div class="col-right new-release">
+                        <ng-container *ngIf="showDummy">
+                            <img src="../assets/images/music-player.jpg" class="img-fluid"/>
+                            <h1 class="app-title">My Music</h1>
+                        </ng-container>
+                        
+                        <app-album-container *ngIf="showTracks" (showPlayer)="togglePlayer($event)"></app-album-container>
+                      </div>
+                    </div>
+                </div>
+                <app-player *ngIf="showPlayer"></app-player>
+            </div>
+            <!-- Content Wrapper END -->
+  
+           
+  
+        </div>
+        <!-- Page Container END -->
+  
+    </div>
+  </div>
+  

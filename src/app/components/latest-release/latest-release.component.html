@@ -1,0 +1,19 @@
+
+  <div class="right-bdr"></div>
+  <h1 class="category-title">Latest release</h1>
+  <div class="albums-container">
+    <div class="album-card" *ngFor="let x of newReleases">
+      <div class="album-box">
+          <img [src]="x.images[1].url"/>
+          <div class="song-overlay"></div>
+          <div class="play-icon">
+            <img (click)="getTracks(x.id)" src="../assets/images/play.svg"/>
+          </div>
+
+      </div>
+      <div class="gradient-overlay"></div>
+      <div class="album-title">
+        <span>{{x.name}}</span>
+      </div>
+    </div>
+  </div>
